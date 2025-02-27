@@ -17,12 +17,13 @@ namespace api_filmes_senai.Context
 
         public DbSet<Genero> Generos { get; set; }
         public DbSet<Filme> Filmes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=ROQUE; Database=filmes_senai; Integrated Security=True; TrustServerCertificate=true;");
+                optionsBuilder.UseSqlServer("Server=NOTE11-S28\\SQLEXPRESS; Database = filmes; User Id = sa; Pwd = Senai@134; TrustServerCertificate=true;");
             }
         }
     }
