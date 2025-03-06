@@ -2,6 +2,7 @@
 
 using System.Linq;
 using api_filmes_senai.Context;
+using api_filmes_senai.Controllers;
 using api_filmes_senai.Domains;
 using api_filmes_senai.Interfaces;
 using api_filmes_senai.Utilss;
@@ -17,7 +18,8 @@ namespace API_Filmes_senai.Repositories
             _context = context;
         }
 
-        public Usuario BuscarPorEmailSenha(string email, string senha)
+
+        public Usuario BuscarPorEmailESenha(string email, string senha)
         {
             try
             {
@@ -60,6 +62,8 @@ namespace API_Filmes_senai.Repositories
         {
             try
             {
+                Criptografia.GerarHash(novoUsuario.Senha!);
+
                 _context.Usuarios.Add(novoUsuario);
 
                 _context.SaveChanges();
